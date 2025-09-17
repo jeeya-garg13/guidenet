@@ -1,0 +1,130 @@
+/* style_message.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    height: 80vh;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.user-list {
+    width: 25%;
+    background: #13274F;
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+
+.user-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-list ul li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #13274F;
+}
+
+.user-list ul li:hover {
+    background: #00356B;
+}
+
+.chat-box {
+    flex: 1;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background: #A3C1AD;
+}
+
+#chat-area {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background: #fff;
+    margin: 10px;
+    
+}
+.chat-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.messages {
+    flex-grow: 1;
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message-input {
+    display: flex;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.message-input button {
+
+
+    padding: 10px 15px;
+    margin-left: 5px;
+    border: none;
+    background: #13274F;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-input button:hover {
+    background: #00356B;
+}
+
+.input-area {
+    padding: 10px;
+    border-radius: 5px;
+
+}
+#message-input {
+    padding: 10px;
+    border-radius: 10%;
+    background-color: #fff;
+    color: #13274F;
+    border-color: #13274F;
+}
+.input-area button {
+    padding: 10px;
+    border-radius: 20%;
+    background-color: #13274F;
+    color:#fff;
+
+}
+

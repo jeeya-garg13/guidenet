@@ -1,0 +1,200 @@
+/* Modal styles */
+#overlay {
+    display: none;  /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Transparent dark background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    
+    background: #c8c8c8;
+    width: 50%;
+    height: 60%;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color:#000;
+}
+
+iframe {
+    width: 100%;
+    height: 90%;
+    border: none;
+}
+
+/* Add these new styles for search functionality */
+.search-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2a51a055;
+    backdrop-filter: blur(5px);
+}
+
+.search-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    background-color: #c8c8c86e;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between input fields */
+    width: 300px;
+    max-width: 600px;
+    margin: 80px auto;
+    overflow: hidden;
+    align-items: center;
+
+}
+.search-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    flex: 1;
+    font-family: 'Nunito', sans-serif;
+}
+
+.search-bar {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+}
+.found-bar {
+    width: 100%;
+    min-height: 50px; /* Minimum height */
+    max-height: 250px; /* Maximum height before scrolling */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 5px;
+    text-align: left;
+    font-size: 16px;
+    overflow-y: auto; /* Enables scrolling if max-height is reached */
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #888 #f1f1f1;
+}
+.found-bar::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+.found-bar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+    border-radius: 4px; /* Rounded corners */
+}
+.found-bar::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scroll thumb */
+    border-radius: 4px; /* Rounded corners */
+}
+.found-bar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scroll thumb on hover */
+}
+#searchResults {
+    flex-direction: column;
+    overflow-y: auto;
+    width: 100%;
+}
+#search-results {
+    width: 100%;
+}
+
+.found-bar a {
+    display: block; /* Forces each user link to take full width */
+    padding: 8px 12opx;
+    text-align: left; /* Aligns text to the left for better readability */
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.found-bar a:hover {
+    background-color: #f5f5f5;
+}
+.close-search {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #666;
+}
+
+.close-search:hover {
+    color: #333;
+}
+
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-result-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 16px;
+    object-fit: cover;
+}
+
+.search-result-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.search-result-info p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.search-item {
+    padding: 10px;
+    cursor: pointer;
+}
+.search-item:hover {
+    background: #f0f0f0;
+}

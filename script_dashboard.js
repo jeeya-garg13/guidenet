@@ -1,0 +1,126 @@
+
+document.addEventListener("DOMContentLoaded", function () {
+    let currentPage = 1;
+    const recordsPerPage = 9; // Change this to adjust users per page
+    let totalUsers = 0;
+    let totalPages = 0;
+
+    const totalPagesElement = document.getElementById("total-pages");
+    const currentPageElement = document.getElementById("current-page");
+    const paginationContainer = document.getElementById("pagination-container");
+    const faceCardContainer = document.getElementById("face-card-container");
+
+    async function fetchTotalUsers() {
+      try {
+        const response = await fetch("fetch_total_users.php");
+        const data = await response.json();
+        totalUsers = data.totalUsers;
+        totalPages = Math.ceil(totalUsers / recordsPerPage);
+        totalPagesElement.textContent = totalPages;
+      } catch (error) {
+        console.error("Error fetching total users:", error);
+      }        
+    }
+
+  async function fetchFaceCards(page) {
+    try {
+        /*fetch("fetch_face_cards.php?page=${page}&limit=${recordsPerPage}")*/
+
+      const response = await fetch(`fetch_face_cards.php?page=${page}&limit=${recordsPerPage}`); // Fetch correct limit
+      
+      const data = await response.json();
+      faceCardContainer.innerHTML = "";
+
+        /*
+        .then(response => response.json())
+        .then(data => {
+          const faceCardContainer = document.getElementById("face-card-container"); 
+          faceCardContainer.innerHTML = ""; // Clear existing static cards*/
+
+      data.forEach(user => {
+        const card = document.createElement("div");
+        card.classList.add("face-card");
+        card.style.cursor = "pointer";
+
+        card.innerHTML = `
+                <img src= "/uploads/profile_pics/${user.PROFILEPICTURE}" alt="Profile image" class="profileimg">
+                <h3>${user.NAME}</h3>
+                <p><strong>Branch:</strong> ${user.BRANCH || "Not mentioned"}</p>
+                <p><strong>State:</strong> ${user.STATE || "Not mentioned"}</p>
+                <p><strong>Bio:</strong> ${user.ABOUT || "No bio available"}</p>
+        `;
+
+        card.addEventListener("click", function () {
+          window.location.href = `searchedprofile.php?clicked_name=${encodeURIComponent(user.NAME)}`;
+        });
+
+        faceCardContainer.appendChild(card);
+      });
+
+      updatePagination(); 
+
+      } catch (error) {
+        console.error("Error fetching face cards:", error);
+      }
+      /*
+      })
+      .catch(error => console.error("Error fetching face cards:", error));*/
+  }
+
+  function updatePagination() {
+    if (!paginationContainer) {
+      console.error("Error: 'pagination-container' not found in DOM.");
+      return;
+    }
+    paginationContainer.innerHTML = "";
+
+    if (currentPage > 1) {
+        const prevLink = document.createElement("a");
+        prevLink.className = "prev";
+        prevLink.textContent = "Prev";
+        prevLink.addEventListener("click", () => loadPage(currentPage - 1));
+        paginationContainer.appendChild(prevLink);
+    }
+
+    for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement("button");
+            pageLink.textContent = i;
+            pageLink.dataset.page = i;
+
+            if (i === currentPage) {
+                pageLink.classList.add("active");
+            }
+            pageLink.addEventListener("click", () => loadPage(i));
+            paginationContainer.appendChild(pageLink);
+
+    }
+
+    if (currentPage < totalPages) {
+        const nextLink = document.createElement("a");
+        nextLink.className = "next";
+        nextLink.textContent = "Next";
+        nextLink.addEventListener("click", () => loadPage(currentPage + 1));
+        paginationContainer.appendChild(nextLink);
+    }
+
+    currentPageElement.textContent = currentPage;
+  }
+
+  function loadPage(page) {
+    if (page < 1 || page > totalPages) return;
+    currentPage = page;
+    fetchFaceCards(currentPage);
+  }
+
+  fetchTotalUsers().then(() => {
+    loadPage(1);
+  });
+
+});
+
+
+
+
+
+//<img src="data:image/jpeg;base64,${user.profilePicture}" alt="${user.name}" class="face-img">
+

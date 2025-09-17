@@ -1,0 +1,306 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: fit-content;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow-x: hidden;
+}
+.task-bar {
+    width: 100%;
+    height: 60px;
+    background-color: #13274F;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+.task-bar img {
+    height: 30px;
+    width: 30px;
+}
+.task-bar h1 {
+    color: #fff;
+    font-size: 20px;
+    margin: 0;
+    padding: 30px;
+}
+.nav-bar {
+    width: 250px;
+    background-color: #13274F;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.faceCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #A3C1AD;
+    border-radius: 8px;
+    margin: 0 10px 20px;
+    width: 80%;
+    height: 80px;
+}
+.faceCard .profileimg {
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+
+
+}
+.faceCard .user-info {
+
+    color: #000000;
+    font-family: 'Nunito', sans-serif;
+    margin-left: 20px;
+}
+.faceCard .user-info h2 {
+    margin: 0;
+    font-size: 18px;
+}
+.faceCard .user-info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #000000;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 20px;
+    font-family:'Nunito', sans-serif;
+    font-size: 16px;
+    display: block;
+    transition: background-color 0.3s;
+}
+.nav-bar a:hover {
+    background-color: #00356B;
+}
+
+.dashboard-container {
+
+
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #fff;
+    align-items: center;
+    justify-content: center;
+
+
+    width: calc(100% - 250px); /* Adjust based on sidebar width */
+    max-width: 1100px;
+    margin-left: 320px; /* Same as sidebar width */
+    margin-top: 60px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: auto; /* Prevents unnecessary scroll */
+
+}
+
+
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 20px;
+    background-color: #ffffff;
+    min-height: 100vh;
+
+    max-width: 1000px; /* Adjust as per layout */
+    margin: 0 auto; /* Center the content */
+
+  }
+  
+  .dashboard-header {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 28px;
+    color: #13274F;
+  }
+  .page-indicator {
+    font-size: 16px;
+    color: #13274F;
+    margin-top: 5px;
+  }
+  
+
+  /* Facecards Container with Scrollbar */
+  .facecards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*align-items: center;*/
+
+    row-gap: 50px;
+    column-gap: 20px;
+
+    overflow: hidden;
+
+  }
+  
+  .face-card {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a51a055;
+    /*2a51a08e*/
+    width: calc(25%-20px);
+    min-width:200px;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 220px;
+
+
+}
+.face-card .profileimg {
+
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.face-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.face-card h3 {
+    margin: 15px 0 0;
+
+    color: #0c0c0c;
+
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px
+}
+.face-card p {
+    margin: 15px 0 0;
+    font-size: 18px;
+    color: #0c0c0c;
+
+    text-align: center;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 5px;
+  }
+  .pagination button {
+    background-color: #13274F; 
+    color: #fff; /* Black text */
+    border: 1px solid #999; /* Border for definition */
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+  .pagination a, .pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: #13274F;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+
+  }
+  .pagination button.active {
+    background-color: #00356B; /* Purple shade */
+    color: #fff; /* White text */
+    font-weight: bold;
+    border-color: #5a4abc;
+  }
+
+  .pagination a:hover {
+    background-color: #00356B;
+  }
+  
+  .pagination a.active {
+    background-color: #13274F;
+    color: #ddd5fb;
+    
+  }
+
+  .pagination .dots {
+    background: none;
+    cursor: default;
+
+  }
+  
+  .pagination .next, .pagination .prev {
+    padding: 0 15px;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+
+  
+  @keyframes dots {
+    0%, 20% { content: "."; }
+    40% { content: ".."; }
+    60%, 100% { content: "..."; }
+  }
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .facecards-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+    
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    
+    .main-content {
+      margin-left: 0;
+    }
+    
+    .facecards-container {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+  
