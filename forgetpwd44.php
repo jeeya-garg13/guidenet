@@ -47,11 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'gargjiya815@gmail.com'; // Change to your Gmail
-            $mail->Password = 'arph noqv bzrj dwkb';  // Use App Password
+            $mail->Username = ''; // Change to your Gmail
+            $mail->Password = '';  // Use App Password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
-            $mail->setFrom('gargjiya815@gmail.com', 'GuideNet'); // Sender details
+            $mail->setFrom('', 'GuideNet'); // edit Sender details with email and title
             $mail->addAddress($email);
 
             $mail->Subject = "Password Reset Verification Code";
@@ -129,3 +129,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     </div>
 </body>
 </html>
+
